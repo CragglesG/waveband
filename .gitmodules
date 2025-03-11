@@ -1,0 +1,3 @@
+[submodule "examples/rust1090"]
+	path = examples/rust1090
+	url = https://github.com/TuinboonDev/Rust1090.git
