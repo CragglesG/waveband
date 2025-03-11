@@ -7,11 +7,12 @@
   line-height: 1.2;
   background-color: black;
   height: auto;
+  visibility: hidden;
 }
 
 .aboutme {
   width: 50%;
-  color:rgb(194, 181, 147);
+  color: rgb(194, 181, 147);
 }
 
 .previousCommands {
@@ -45,13 +46,11 @@
 .mcq-option {
   padding: 1px;
   cursor: pointer;
- 
 }
 
 .mcq-option:hover a {
   background-color: #f2f2f2;
   color: black;
-  
 }
 
 .mcq-option:hover {
@@ -93,7 +92,6 @@ input[type="text"]:focus {
 }
 
 @media screen and (max-width: 768px) {
-
   /* CSS rules for mobile devices */
   #skipButton {
     font-size: large;
