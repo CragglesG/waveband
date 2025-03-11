@@ -1,3 +1,3 @@
-# Hack RTL Website
+# Waveband Website
 
-The Hack RTL website is based on [this website](https://vineysws.vercel.app).
+The Waveband website is based on [this website](https://vineysws.vercel.app).
