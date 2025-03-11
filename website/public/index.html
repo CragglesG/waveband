@@ -5,10 +5,12 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Waveband: A future Hack Club YSWS.">
-    <meta name="keywords"
-    content="terminal, waveband, rtl-sdr, ysws, beginner-friendly" />
-    <link rel="canonical" href="https://hackrtl.vercel.app">
+    <meta name="description" content="Waveband: A future Hack Club YSWS." />
+    <meta
+      name="keywords"
+      content="terminal, waveband, rtl-sdr, ysws, beginner-friendly"
+    />
+    <link rel="canonical" href="https://waveband-ysws.vercel.app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Waveband</title>
@@ -20,14 +22,86 @@
 
       <h2>What is Waveband?</h2>
 
-      Waveband is a future Hack Club ysws run by hack clubbers. if you're a teen, you can get a free rtl2832/rt820t2-based dongle by making a desktop app that uses an rtl-sdr dongle.
-      
-      <br><br>
-      
-      to qualify for a free dongle, you need to have made a desktop app that uses an rtl-sdr dongle in a unique way. you can use pre-built software/tools such as dump1090, but a large portion of code should be written by you. for info on rules and what counts, go <a href="https://docs.google.com/document/d/11AMFcU8Zo07w1dffhjWyhSuk_MtKOdyNGZ2WN_FvTH8/edit?tab=t.0" target="_blank">here</a>. you'll need to enable javascript to submit your project.<br><br>
-      
-      
+      Waveband is a future Hack Club ysws run by hack clubbers. if you're a
+      teen, you can get a free rtl2832/rt820t2-based dongle by making a desktop
+      app that uses an rtl-sdr dongle.
+
+      <br /><br />
+
+      to qualify for a free dongle, you need to have made a desktop app that
+      uses an rtl-sdr dongle in a unique way. you can use pre-built
+      software/tools such as dump1090, but a large portion of code should be
+      written by you. for info on rules and what counts, go
+      <a
+        href="https://docs.google.com/document/d/11AMFcU8Zo07w1dffhjWyhSuk_MtKOdyNGZ2WN_FvTH8/edit?tab=t.0"
+        target="_blank"
+        >here</a
+      >. you'll need to enable javascript to submit your project.<br /><br />
     </noscript>
     <div id="root"></div>
+    <div class="panel">
+      <div class="scanner"></div>
+      <ul class="something">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <script>
+      function fadeOut(element, duration = 2000) {
+        let start = performance.now();
+
+        function animate(time) {
+          let progress = (time - start) / duration;
+          element.style.opacity = Math.max(1 - progress, 0);
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            element.style.display = "none";
+          }
+        }
+
+        requestAnimationFrame(animate);
+        document.querySelector(".terminal").style.visibility = "visible";
+      }
+
+      let list_items = document.querySelectorAll(".something li");
+      let item = list_items[Math.floor(Math.random() * list_items.length)];
+      let panelElement = document.querySelector(".panel");
+
+      let interval = setInterval(() => {
+        let opacity = parseFloat(getComputedStyle(item).opacity);
+        if (opacity > 0.9) {
+          item.classList.add("target-highlight");
+
+          setTimeout(() => {
+            let rect = item.getBoundingClientRect();
+            let panelRect = panelElement.getBoundingClientRect();
+
+            let relativeX =
+              ((rect.left + rect.width / 2 - panelRect.left) /
+                panelRect.width) *
+              100;
+            let relativeY =
+              ((rect.top + rect.height / 2 - panelRect.top) /
+                panelRect.height) *
+              100;
+
+            panelElement.style.transformOrigin = `${relativeX}% ${relativeY}%`;
+
+            panelElement.style.transform = `scale(5)`;
+          }, 50);
+
+          setTimeout(() => {
+            fadeOut(panelElement, 500);
+          }, 1500);
+
+          clearInterval(interval);
+        }
+      }, 50);
+    </script>
   </body>
 </html>
