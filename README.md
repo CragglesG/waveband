@@ -1,3 +1,3 @@
-# Hack RTL
+# Waveband
 
-This is the repo for Hack RTL, a potential Hack Club YSWS.
+This is the repo for Waveband, an upcoming Hack Club YSWS.
