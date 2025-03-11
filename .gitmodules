@@ -1,3 +1,6 @@
 [submodule "examples/rust1090"]
 	path = examples/rust1090
 	url = https://github.com/TuinboonDev/Rust1090.git
+[submodule "examples/rtlsdr-radio"]
+	path = examples/rtlsdr-radio
+	url = https://github.com/njfdev/rtlsdr-radio
