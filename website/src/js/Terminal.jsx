@@ -167,8 +167,8 @@ export default function Terminal() {
                   <li key={index}>{item}</li>
                   <div className="instructions">
                     <br></br>
-                    to qualify for a free dongle, you need to have made a
-                    desktop app that uses an rtl-sdr dongle in a unique way. you
+                    to qualify for a free dongle, you need to have made software
+                    that uses an rtl-sdr dongle in a unique way. you
                     can use pre-built software/tools such as dump1090, but a
                     large portion of code should be written by you. once you've
                     made an app, type 'submit' to apply for a free dongle. for
