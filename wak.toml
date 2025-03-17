@@ -5,11 +5,15 @@ version = 1
 watchers = ['files']
 
 [files]
-include = ["*"]  # files to include in tracking
-exclude = ["website/node_modules/*", "example-project/.venv/*"]  # files to exclude in tracking
-exclude_files = []  # files whose contents will be used to exclude other files from tracking
-exclude_binary_files = true  # whether to ignore binary files
+include = ["*"] # files to include in tracking
+exclude = [
+    "website/node_modules/*",
+    "example-project/.venv/*",
+] # files to exclude in tracking
+exclude_files = [
+] # files whose contents will be used to exclude other files from tracking
+exclude_binary_files = true # whether to ignore binary files
 # language_mapping = {".kicad_sch" = "Kicad Schematic"} # custom language mapping
 
 [project]
-name = "ads-b-ysws"  # your project name
+name = "waveband" # your project name
