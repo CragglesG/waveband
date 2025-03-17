@@ -32,16 +32,16 @@ api.get(0);
 if (api.success == true) {
   // Print the received data
   console.log(api.sdrData);
-// Check if the API request was unsuccessful
+  // Check if the API request was unsuccessful
 } else if (api.success == false) {
   console.log("API request failed");
-// Check if the API request hasn't completed yet
+  // Check if the API request hasn't completed yet
 } else if (api.success == null) {
   console.log("The API request hasn't completed yet!");
 }
 ```
 
-The `data_type` parameter provided when using `API.get` specifies the type of data to retrieve from the API. It can be one of the following values:
+The `dataType` parameter provided when using `API.get` specifies the type of data to retrieve from the API. It can be one of the following values:
 
 - `0` for FM Radio
 - `1` for ADS-B
