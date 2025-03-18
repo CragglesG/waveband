@@ -2,12 +2,13 @@
 
 This is the repo for Waveband, an upcoming Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you!
 
-**RSVP [here](https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form)**
+**Interested? RSVP [here](https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form)**
 
 ## Table of Contents
 
-- [What is Waveband?](#what-is-waveband?)
-- [Waveband API](#waveband-api)
+- [What's a YSWS?](#whats-a-ysws)
+- [What's an RTL-SDR dongle?](#whats-an-rtl-sdr-dongle)
+- [What's the Waveband API?](#whats-the-waveband-api)
   - [Waveband API Specification](#waveband-api-specification)
 - [Example Projects](#example-projects)
   - [Rust1090](#rust1090)
@@ -15,15 +16,21 @@ This is the repo for Waveband, an upcoming Hack Club YSWS where you ship a progr
   - [SDR-Weather](#sdr-weather)
 - [Website](#website)
 
-## What is Waveband?
+## What's a YSWS?
 
-Waveband is an upcoming Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you! If you're in the [Hack Club Slack](https://hackclub.com/slack), you can check out the [Waveband FAQ](https://hackclub.slack.com/docs/T0266FRGM/F0823BZ4X1Q) for more info.
+A "You Ship, We Ship" is a type of program for teenagers run by [Hack Club](https://hackclub.com). During a YSWS, teenagers can create their own program in return for a free prize. To participate in this YSWS, you'll need to create a program that uses an RTL-SDR dongle in a unique way, and in return, we'll ship one out to you!
 
-If you're interested in participating, please RSVP [here](https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form).
+## What's an RTL-SDR dongle?
 
-## Waveband API
+An RTL-SDR dongle is a small USB device that can receive radio waves anywhere from 24MHz-1.7GHz in frequency. This means it can pick up on FM radio, aircraft signals, weather balloon data, phone signals, amateur radio, and more! It can even recieve TV broadcasts in Europe! The name RTL-SDR comes from the name of the chip used in these models – the RTL2823U – and the type of radio which it is: a _Software-Defined Radio_. Software-defined radios can be controlled entirely using code, and that's what makes them so powerful!
 
-The Waveband API is an easy way to test your project without a physical dongle. It provides access to FM Radio, ADS-B, and HAM Radio data collected in real-time using a remote dongle. If you're using Python, JavaScript, or Rust, you can use one of the pre-built [libraries](api/README.md). If not, you'll need to interact with the API directly.
+## How can I get started?
+
+Getting started with Waveband and RTL-SDR is easy! For the purpose of this YSWS, you won't need to install any drivers or additional software, as you can test your program using the Waveband API. Firstly, you need to come up with an idea. This can be anything that uses an RTL-SDR dongle, as long as you can spend ~9hrs working on it. Next, you need to implement your idea! You might need to do a bit of research if you've chosen an ambitious idea or you're new to SDR. You can use any language and tools you want, as long as a large portion of code is written by you. Feel free to ask in #waveband in the [Hack Club Slack](https://hackclub.com/slack) for help if you need it. Finally, you can submit your project! You'll need to have created some sort of demo for this; if your project contains a web interface, then you should host it online. If it doesn't, a video and installation instructions should suffice.
+
+## What's the Waveband API?
+
+The Waveband API is an easy way to test your project using data from a remote dongle. You'll need a token to use the API, which you can get by running `/waveband` anywhere in the [Hack Club Slack](https://hackclub.com/slack). If you're using Python, JavaScript, or Rust, there are libraries available to make it easy to receive data from the API. You can find them [here](api/README.md). If not, you'll have to check out the Waveband API Specification and communicate with the API yourself.
 
 ### Waveband API Specification
 
@@ -56,6 +63,15 @@ RTL-SDR Radio is a cross-platform, minimalistic desktop app for listening to FM 
 ### SDR-Weather
 
 SDR-Weather is a program that uses an RTL-SDR dongle to receive weather data from nearby aircraft. It then presents this data using TTS (Text To Speech) and an auto-generated Leaflet.js map. It was built by @CragglesG and you can see it [here](examples/sdr-weather).
+
+## What are the rules for submissions?
+
+* You can build your submission on top of dump1090 or similar software, but most code must be written by you.
+* Your submission must have a unique idea; projects will be checked for plagiarism and fraud.
+* You may use AI tools such as GitHub Copilot to assist with debugging and autocompletion, but you may not use AI to generate large amounts of code or provide ideas.
+* Your project must be open source
+* You may not work extensively with others on your project, but you can get help if you’re stuck.
+* You must spend at least 9 hours on your project (exceptions may be made for particularly impressive projects)
 
 ## Website
 
