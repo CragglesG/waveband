@@ -8,12 +8,14 @@ This is the repo for Waveband, an upcoming Hack Club YSWS where you ship a progr
 
 - [What's a YSWS?](#whats-a-ysws)
 - [What's an RTL-SDR dongle?](#whats-an-rtl-sdr-dongle)
+- [How can I get started?](#how-can-i-get-started)
 - [What's the Waveband API?](#whats-the-waveband-api)
   - [Waveband API Specification](#waveband-api-specification)
 - [Example Projects](#example-projects)
   - [Rust1090](#rust1090)
   - [RTL-SDR Radio](#rtl-sdr-radio)
   - [SDR-Weather](#sdr-weather)
+- [What are the rules for submissions?](#what-are-the-rules-for-submissions)
 - [Website](#website)
 
 ## What's a YSWS?
@@ -76,3 +78,7 @@ SDR-Weather is a program that uses an RTL-SDR dongle to receive weather data fro
 ## Website
 
 The Waveband website is located in the [`website` directory](website/). It's based on the [Vine](https://github.com/N1k0s1/Vine) website. You can view it [here](https://waveband-ysws.vercel.app).
+
+<br>
+
+[🔼 Back to top](#waveband)
