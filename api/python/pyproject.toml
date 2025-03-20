@@ -22,7 +22,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = ["python_dotenv"]
 
 [project.urls]
 Issues = "https://github.com/CragglesG/waveband/issues"

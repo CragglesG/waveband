@@ -1,6 +1,10 @@
 from . import API
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def test_api():
-    api = API("thijmens.nl", 12346, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDE5NDg2MTQsInVpZCI6IlUwNzhIMTBRM01aIiwidW5hbWUiOiJ0aGlqbWVuaGVuZ2VsIn0.hCbWARjlg6ccoxF50qd4j7xcqpbiySANu22yUEjhnDE")
+    api = API("thijmens.nl", 12346, os.getenv("API_KEY"))
     result = api.get(0)
     assert type(result) == bytes

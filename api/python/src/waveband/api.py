@@ -17,10 +17,10 @@ class API:
         receiving = True
         data = b""
         while receiving:
-            received = s.recv(1)
             if b"\r\n" in data:
                 receiving = False
             else:
+                received = s.recv(1)
                 data += received
         if not data.decode().strip() == "Hello":
             s.close()
@@ -33,10 +33,10 @@ class API:
         receiving = True
         data = b""
         while receiving:
-            received = s.recv(1)
             if b"\r\n" in data:
                 receiving = False
             else:
+                received = s.recv(1)
                 data += received
 
         s.close()
