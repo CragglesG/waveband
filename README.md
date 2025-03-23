@@ -9,8 +9,6 @@ This is the repo for Waveband, an upcoming Hack Club YSWS where you ship a progr
 - [What's a YSWS?](#whats-a-ysws)
 - [What's an RTL-SDR dongle?](#whats-an-rtl-sdr-dongle)
 - [How can I get started?](#how-can-i-get-started)
-- [What's the Waveband API?](#whats-the-waveband-api)
-  - [Waveband API Specification](#waveband-api-specification)
 - [Example Projects](#example-projects)
   - [Rust1090](#rust1090)
   - [RTL-SDR Radio](#rtl-sdr-radio)
@@ -28,8 +26,9 @@ An RTL-SDR dongle is a small USB device that can receive radio waves anywhere fr
 
 ## How can I get started?
 
-Getting started with Waveband and RTL-SDR is easy! For the purpose of this YSWS, you won't need to install any drivers or additional software, as you can test your program using the Waveband API. Firstly, you need to come up with an idea. This can be anything that uses an RTL-SDR dongle, as long as you can spend ~9hrs working on it. Next, you need to implement your idea! You might need to do a bit of research if you've chosen an ambitious idea or you're new to SDR. You can use any language and tools you want, as long as a large portion of code is written by you. Feel free to ask in #waveband in the [Hack Club Slack](https://hackclub.com/slack) for help if you need it. Finally, you can submit your project! You'll need to have created some sort of demo for this; if your project contains a web interface, then you should host it online. If it doesn't, a video and installation instructions should suffice.
+Getting started with Waveband and RTL-SDR is easy! For the purpose of this YSWS, you won't need to install any drivers or additional software, as you can test your program using the Waveband API (the API is currently a WIP. You'll be able to find more information about it here when it's done.) Firstly, you need to come up with an idea. This can be anything that uses an RTL-SDR dongle, as long as you can spend ~9hrs working on it. Next, you need to implement your idea! You might need to do a bit of research if you've chosen an ambitious idea or you're new to SDR. You can use any language and tools you want, as long as a large portion of code is written by you. Feel free to ask in #waveband in the [Hack Club Slack](https://hackclub.com/slack) for help if you need it. Finally, you can submit your project! You'll need to have created some sort of demo for this; if your project contains a web interface, then you should host it online. If it doesn't, a video and installation instructions should suffice.
 
+<!--
 ## What's the Waveband API?
 
 The Waveband API is an easy way to test your project using data from a remote dongle. You'll need a token to use the API, which you can get by running `/waveband` anywhere in the [Hack Club Slack](https://hackclub.com/slack). If you're using Python, JavaScript, or Rust, there are libraries available to make it easy to receive data from the API. You can find them [here](api/README.md). If not, you'll have to check out the Waveband API Specification and communicate with the API yourself.
@@ -49,6 +48,7 @@ Below is the usual exchange between the client and server. If you are interactin
 5. Client sends the length of their token followed by their token, without a terminating CRLF.
 
 6. Server assess whether the token is valid, and if it is, it sends the relevant data. If not, it terminates the connection.
+-->
 
 ## Example Projects
 
