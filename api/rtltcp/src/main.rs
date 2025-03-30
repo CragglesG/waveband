@@ -1,7 +1,7 @@
 use std::convert::TryInto;
 use std::io::prelude::*;
 use std::io::BufWriter;
-use std::net::TcpListener;
+use std::net::{Shutdown, TcpListener};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::sync_channel;
 use std::sync::{Arc, Mutex};
@@ -10,9 +10,12 @@ use clap::Parser;
 #[cfg(feature = "systemd")]
 use listenfd::ListenFd;
 use redis::Commands;
+use serde::Deserialize;
+use serde_json::json;
 use tracing::{debug, info};
 
 use redis;
+use redis::{JsonCommands, Value as RV};
 
 #[derive(Parser, Debug)]
 #[clap(
@@ -41,6 +44,12 @@ struct Args {
     /// tcp sending buffer size (in bytes)
     #[clap(short, long, default_value_t = 512000)]
     tcp_buffers: usize,
+}
+
+#[derive(Deserialize, Debug)]
+struct CacheEntry {
+    params: Vec<i32>,
+    bytes: Vec<u8>,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -80,16 +89,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     })?;
 
-    let client = redis::Client::open("redis://127.0.0.1:6379/")?;
-    let mut con = client.get_connection()?;
+    let redis_client = redis::Client::open("redis://127.0.0.1:6379/")?;
+    let mut r = redis_client.get_connection()?;
 
     info!("waiting for connection…");
     let (stream, addr) = listener.accept()?;
 
-    let iswhitelisted: bool = con.sismember("waveband-api-ip-whitelist", addr.ip().to_string())?;
-    if !iswhitelisted {
-        info!("ip not whitelisted; closing connection.");
-        stream.shutdown(std::net::Shutdown::Both)?;
+    if !r.sismember("waveband-api-ip-whitelist", addr.ip().to_string())? {
+        info!("ip not whitelisted; closing connection…");
+        stream.shutdown(Shutdown::Both)?;
         return Ok(());
     }
 
@@ -159,31 +167,76 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     });
 
-    let thread_cancel = std::thread::spawn({
-        move || {
-            receiver.recv().unwrap();
-            info!("stopping read from device");
-            ctl.lock().unwrap().cancel_async_read();
-            should_exit.store(true, Ordering::SeqCst);
-        }
-    });
+    let params = [
+        ctl.lock().unwrap().center_freq() as i32,
+        ctl.lock().unwrap().ppm(),
+        ctl.lock().unwrap().sample_rate() as i32,
+        ctl.lock().unwrap().tuner_gain(),
+    ];
 
-    let mut buf_write_stream = BufWriter::with_capacity(args.tcp_buffers, stream);
-    let mut magic_packet = vec![];
-    magic_packet.extend_from_slice(b"RTL0");
-    magic_packet.extend_from_slice(&5u32.to_be_bytes()); // FIXME
-    magic_packet.extend_from_slice(&[0x00, 0x00, 0x00, 0x1d]); // FIXME
-    buf_write_stream.write_all(&magic_packet)?;
-    reader
-        .read_async(args.buffers, 0, |bytes| {
-            buf_write_stream.write_all(bytes).unwrap_or_else(|_err| {
+    let cache_entries: Vec<String> = r.json_get("cache-entries", "$.waveband-api-cache")?;
+
+    let mut cache_hit: Vec<u8> = Vec::new();
+    for entry_json in &cache_entries {
+        if let Ok(entry) = serde_json::from_str::<CacheEntry>(entry_json) {
+            if entry.params == params {
+                cache_hit = entry.bytes;
+                break;
+            }
+        }
+    }
+
+    if cache_hit.is_empty() {
+        let thread_cancel = std::thread::spawn({
+            move || {
+                receiver.recv().unwrap();
+                info!("stopping read from device");
+                ctl.lock().unwrap().cancel_async_read();
+                should_exit.store(true, Ordering::SeqCst);
+            }
+        });
+
+        let mut buf_write_stream = BufWriter::with_capacity(args.tcp_buffers, stream);
+        let mut magic_packet = vec![];
+        magic_packet.extend_from_slice(b"RTL0");
+        magic_packet.extend_from_slice(&5u32.to_be_bytes()); // FIXME
+        magic_packet.extend_from_slice(&[0x00, 0x00, 0x00, 0x1d]); // FIXME
+        buf_write_stream.write_all(&magic_packet)?;
+        reader
+            .read_async(args.buffers, 0, |bytes| {
+                buf_write_stream.write_all(bytes).unwrap_or_else(|_err| {
+                    sender.try_send(()).expect("can't exit normally");
+                });
+                r.json_arr_append::<&str, &str, serde_json::Value, RV>(
+                    "cache-entries",
+                    "$.waveband-api-cache",
+                    &json!({
+                        "params": params,
+                        "bytes": bytes
+                    }),
+                )
+                .unwrap_or_else(|_err| {
+                    sender.try_send(()).expect("can't exit normally");
+                    RV::Nil
+                });
+            })
+            .unwrap();
+
+        thread_cancel.join().unwrap();
+        thread_ctl.join().unwrap();
+    } else {
+        let mut buf_write_stream = BufWriter::with_capacity(args.tcp_buffers, stream);
+        let mut magic_packet = vec![];
+        magic_packet.extend_from_slice(b"RTL0");
+        magic_packet.extend_from_slice(&5u32.to_be_bytes()); // FIXME
+        magic_packet.extend_from_slice(&[0x00, 0x00, 0x00, 0x1d]); // FIXME
+        buf_write_stream.write_all(&magic_packet)?;
+        buf_write_stream
+            .write_all(&cache_hit)
+            .unwrap_or_else(|_err| {
                 sender.try_send(()).expect("can't exit normally");
             });
-        })
-        .unwrap();
-
-    thread_cancel.join().unwrap();
-    thread_ctl.join().unwrap();
+    }
 
     Ok(())
 }
