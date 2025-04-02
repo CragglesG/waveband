@@ -81,7 +81,7 @@ export default function Terminal() {
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>General: </span> about, neofetch,
-          clear, instructions
+          clear, instructions, gallery
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>Links:</span> rsvp, github, source,
@@ -194,6 +194,32 @@ export default function Terminal() {
                   </div>
                 </div>
               );
+            } else if (item.match(new RegExp(`\\b${"gallery"}\\b`, "g"))) {
+              return (<div>
+                <li key={index}>{item}</li>
+                <div className="gallery">
+                  <br></br>
+                  <h3><b>Project Gallery (WIP)</b></h3>
+                  <ul className="gallery">
+                    <li style={artStyle}>{`
+|---------------------|
+|                     |
+|                     |
+|                     |
+|                     |
+|---------------------|
+|Project Name Here    |
+|Project Link Here    |
+|---------------------|
+|Short but also long  |
+|description of this  |
+|project.             |
+|---------------------|`}
+                    </li>
+                  </ul>
+                  <br></br>
+                </div>
+              </div>)
             } else if (item.match(new RegExp(`\\b${"neofetch"}\\b`, "g"))) {
               return (
                 <div>
@@ -288,6 +314,7 @@ export default function Terminal() {
             name="command"
             autoComplete="off"
             autoFocus
+            autoCapitalize="off"
           ></input>
         </span>
       </div>
