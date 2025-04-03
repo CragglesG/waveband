@@ -15,6 +15,23 @@ const terminalStyle = {
   fontFamily: "monospace",
 };
 
+const funFacts = [
+  (<div className="fun-fact"><span style={{ color: "#FFFF00" }}>Fun fact!</span><br/>RTL-SDR dongles can be used to receive
+    signals from weather satellites, allowing<br/>you to get real-time weather images directly to your computer!
+    </div>),
+  (<div className="fun-fact"><span style={{ color: "#FFFF00" }}>Did you know?</span><br/>With an SDR, you can tune into a wide
+    range of frequencies, from listening to FM<br/>radio to decoding signals from aircraft and even tracking ships using AIS!
+    </div>),
+  (<div className="fun-fact"><span style={{ color: "#FFFF00" }}>Fun fact!</span><br/>RTL-SDR dongles were originally designed for DVB-T
+    television reception but were<br/>repurposed into cheap software-defined radios!
+    </div>)
+
+]
+
+function getFunFact() {
+  return funFacts[Math.floor(Math.random() * funFacts.length)]
+}
+
 // Move Terminal outside of Typewriter
 export default function Terminal() {
   let previousCommand;
@@ -298,12 +315,7 @@ export default function Terminal() {
                         1090MHz
                         <br />
                         <br />
-                        <span style={{ color: "#FFFF00" }}>Fun fact!</span> Most
-                        climbing mishaps happen from exhaustion.
-                        <br />
-                        Remember to take regular breaks!
-                        <br />
-                        <br />
+                        {getFunFact()}
                       </div>
                     </div>
                   </div>

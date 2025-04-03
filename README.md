@@ -73,11 +73,11 @@ SDR-Weather is a program that uses an RTL-SDR dongle to receive weather data fro
 * You may use AI tools such as GitHub Copilot to assist with debugging and autocompletion, but you may not use AI to generate large amounts of code or provide ideas.
 * Your project must be open source
 * You may not work extensively with others on your project, but you can get help if you’re stuck.
-* You must spend at least 9 hours on your project (exceptions may be made for particularly impressive projects)
+* You must spend at least 10 hours on your project (exceptions may be made for particularly impressive projects)
 
 ## Website
 
-The Waveband website is located in the [`website` directory](website/). It's based on the [Vine](https://github.com/N1k0s1/Vine) website. You can view it [here](https://waveband-ysws.vercel.app).
+The Waveband website is located in the [`website` directory](website/), and you can view it [here](https://waveband-ysws.vercel.app). It's based on the [Vine](https://github.com/N1k0s1/Vine) website.
 
 <br>
 

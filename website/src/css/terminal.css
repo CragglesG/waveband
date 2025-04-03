@@ -116,3 +116,7 @@ input[type="text"]:focus {
   margin: 0;
   padding: 0;
 }
+
+.fun-fact {
+  text-wrap: wrap;
+}
