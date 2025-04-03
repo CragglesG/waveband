@@ -73,7 +73,7 @@ export default function Terminal() {
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>General: </span> about, neofetch,
-          clear, instructions
+          clear, instructions, gallery
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>Links:</span> rsvp, github, source,
@@ -186,6 +186,54 @@ export default function Terminal() {
                   </div>
                 </div>
               );
+            } else if (item.match(new RegExp(`\\b${"gallery"}\\b`, "g"))) {
+              return (<div>
+                <li key={index}>{item}</li>
+                <div>
+                  <br></br>
+                  <h3><b>Project Gallery</b></h3>
+                  <ul className="gallery">
+                  <li style={artStyle}>{`
+|--------------------------|
+|         Rust1090         |
+|`}<i>By @Tuinboon (TuinboonDev)</i>{`|
+|       `}<a href="https://github.com/TuinboonDev/rust1090">GitHub Repo</a>{`        |
+|           `}<a href="https://plane.thijmens.nl">Demo</a>{`           |
+|--------------------------|
+|A Rust program that       |
+|complements dump1090 by   |
+|providing a web interface |
+|and statistics tracking.  |
+|--------------------------|`}
+                    </li>
+                    <li style={artStyle}>{`
+|---------------------|
+|    RTL-SDR Radio    |
+| `}<i>By @njfdev (njfdev)</i>{` |
+|     `}<a href="https://github.com/njfdev/rtlsdr-radio">GitHub Repo</a>{`     |
+|---------------------|
+|A desktop app for    |
+|listening to FM and  |
+|AM radio and viewing |
+|nearby aircraft.     |
+|---------------------|`}
+                    </li>
+                    <li style={artStyle}>{`
+|---------------------|
+|     SDR-Weather     |
+|`}<i>By @Craig (CragglesG)</i>{`|
+|     `}<a href="https://github.com/CragglesG/waveband/tree/main/examples/sdr-weather">GitHub Repo</a>{`     |
+|---------------------|
+|A Python program to  |
+|find current weather |
+|conditions using data|
+|from nearby aircraft.|
+|---------------------|`}
+                    </li>
+                  </ul>
+                  <br></br>
+                </div>
+              </div>)
             } else if (item.match(new RegExp(`\\b${"neofetch"}\\b`, "g"))) {
               return (
                 <div>
@@ -280,6 +328,7 @@ export default function Terminal() {
             name="command"
             autoComplete="off"
             autoFocus
+            autoCapitalize="off"
           ></input>
         </span>
       </div>

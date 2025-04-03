@@ -108,3 +108,11 @@ input[type="text"]:focus {
     width: 100%;
   }
 }
+
+.gallery {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
