@@ -95,7 +95,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("waiting for connection…");
     let (stream, addr) = listener.accept()?;
 
-    if !r.sismember("waveband-api-ip-whitelist", addr.ip().to_string())? {
+    let ip = addr.ip().to_string();
+    info!("connection from {}", ip);
+
+    if !r.sismember("waveband-api-ip-whitelist", ip)? {
         info!("ip not whitelisted; closing connection…");
         stream.shutdown(Shutdown::Both)?;
         return Ok(());
