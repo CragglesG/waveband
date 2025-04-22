@@ -1,7 +1,7 @@
 use std::convert::TryInto;
 use std::io::prelude::*;
 use std::io::BufWriter;
-use std::net::{Shutdown, TcpListener};
+use std::net::{Shutdown, TcpListener, IpAddr};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::sync_channel;
 use std::sync::{Arc, Mutex};
@@ -124,9 +124,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let should_exit = should_exit.clone();
         let mut stream = stream.try_clone()?;
         move || {
-            let mut buf = [0; 5];
+            let mut buf: Vec<u8> = vec!();
             loop {
-                stream.read_exact(&mut buf).unwrap();
+                stream.read_to_end(&mut buf).unwrap();
                 if should_exit.load(Ordering::SeqCst) {
                     break;
                 }
