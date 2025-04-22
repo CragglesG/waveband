@@ -98,7 +98,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let ip = addr.ip().to_string();
     info!("connection from {}", ip);
 
-    if !r.sismember("waveband-api-ip-whitelist", ip)? {
+    let ip_only = match addr.ip() {
+        IpAddr::V4(ipv4) => ipv4.to_string(),
+        IpAddr::V6(v6) => {
+            if let Some(mapped) = v6.to_ipv4() {
+                mapped.to_string()
+            } else {
+                v6.to_string()
+            }
+        }
+    };
+    
+    if !r.sismember("waveband-api-ip-whitelist", ip_only)? {
         info!("ip not whitelisted; closing connection…");
         stream.shutdown(Shutdown::Both)?;
         return Ok(());
