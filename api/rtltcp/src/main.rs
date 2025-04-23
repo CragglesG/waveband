@@ -124,9 +124,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let should_exit = should_exit.clone();
         let mut stream = stream.try_clone()?;
         move || {
-            let mut buf: Vec<u8> = vec!();
+            let mut buf = [0; 5];
             loop {
-                stream.read_to_end(&mut buf).unwrap();
+                stream.read(&mut buf).unwrap();
                 if should_exit.load(Ordering::SeqCst) {
                     break;
                 }
