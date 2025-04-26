@@ -2,8 +2,8 @@ import SoapySDR
 from SoapySDR import *
 import numpy as np
 
-server_ip = "check slack for ip"
-server_port = "check slack for port"
+server_ip = "check canvas in #waveband for ip"
+server_port = "check canvas in #waveband for port"
 
 # Create device arguments
 args = dict(driver="rtltcp", rtltcp=f"{server_ip}:{server_port}")
