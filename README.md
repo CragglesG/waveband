@@ -1,8 +1,6 @@
 # Waveband
 
-This is the repo for Waveband, an upcoming Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you!
-
-**Interested? RSVP [here](https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form)**
+This is the repo for Waveband, a Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you!
 
 ## Table of Contents
 

@@ -59,15 +59,9 @@ export default function Terminal() {
               "https://github.com/CragglesG/waveband/blob/main/README.md",
               "_blank"
             );
-          } else if (CommandArea.value === "rsvp") {
-            window.open(
-              "https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form",
-              "_blank"
-            );
+          } else if (CommandArea.value === "submit") {
+            window.open("[submission form link here]", '_blank');
           }
-          // else if (CommandArea.value === "submit") {
-          //   window.open("smth here", '_blank');
-          // }
           CommandArea.value = "";
         }
       }
@@ -84,8 +78,7 @@ export default function Terminal() {
         </pre>
         <span>Welcome!</span>
         <br/>
-        <span>Waveband is a future Hack Club YSWS created by Hack Clubbers. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
-        <h2 style={{ color: "darkorange" }}>RSVP now by running "rsvp"!</h2>
+        <span>Waveband is a Hack Club YSWS created by Hack Clubbers. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
         <br />
         <span>
           <span style={{ color: "skyblue" }}>Available Commands:</span>
@@ -95,7 +88,7 @@ export default function Terminal() {
           clear, instructions, gallery
         </span>
         <span>
-          <span style={{ color: "#c9c9c9" }}>Links:</span> rsvp, github, source,
+          <span style={{ color: "#c9c9c9" }}>Links:</span> github, source,
           submit, guide
         </span>
         <br></br>
@@ -111,20 +104,6 @@ export default function Terminal() {
                   <br></br>
                   <span style={{ color: "#c9c9c9" }}>
                     Opened GitHub https://github.com/CragglesG/waveband
-                  </span>
-                  <br></br>
-                  <br></br>
-                </li>
-              );
-            } else if (item.match(new RegExp(`\\b${"rsvp"}\\b`, "g"))) {
-              return (
-                <li key={index}>
-                  {item}
-                  <br></br>
-                  <br></br>
-                  <span style={{ color: "#c9c9c9" }}>
-                    Opened the RSVP form in a new tab:
-                    https://airtable.com/appgaxO7wo2xGGIir/pag6C6wGzrVLAUJdL/form
                   </span>
                   <br></br>
                   <br></br>
@@ -165,8 +144,8 @@ export default function Terminal() {
                   <br></br>
                   <br></br>
                   <span style={{ color: "#c9c9c9" }}>
-                    hmmm. it looks like there's nothing here yet. maybe you could
-                    help change that by rsvping.
+                    Opened submission form in a new tab:
+                    [submission form link here]
                   </span>
                   <br></br>
                   <br></br>
@@ -180,7 +159,7 @@ export default function Terminal() {
                   <li key={index}>{item}</li>
                   <div className="about">
                     <br></br>
-                    waveband is a future hack club ysws created by hack
+                    waveband is a hack club ysws created by hack
                     clubbers. if you're a teen, you can get a free
                     rtl-sdr dongle by making a program that
                     uses one. type 'instructions' for more.{" "}
