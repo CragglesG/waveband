@@ -60,13 +60,17 @@ export default function Terminal() {
               "_blank"
             );
           } else if (CommandArea.value === "submit") {
-            window.open("[submission form link here]", '_blank');
+            window.open("https://forms.hackclub.com/waveform", '_blank');
           }
           CommandArea.value = "";
         }
       }
     });
   }, []);
+
+  let firstDate = new Date("22/05/2025"),
+    secondDate = new Date(),
+    timeDifference = Math.abs(secondDate.getTime() - firstDate.getTime());
 
   return (
     <div className="terminal">
@@ -78,7 +82,7 @@ export default function Terminal() {
         </pre>
         <span>Welcome!</span>
         <br/>
-        <span>Waveband is a Hack Club YSWS created by Hack Clubbers. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
+        <span>Waveband is a Hack Club YSWS running from May 23rd to June 20th. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
         <br />
         <span>
           <span style={{ color: "skyblue" }}>Available Commands:</span>
@@ -145,7 +149,7 @@ export default function Terminal() {
                   <br></br>
                   <span style={{ color: "#c9c9c9" }}>
                     Opened submission form in a new tab:
-                    [submission form link here]
+                    https://forms.hackclub.com/waveform
                   </span>
                   <br></br>
                   <br></br>
@@ -274,7 +278,7 @@ export default function Terminal() {
                         6.11.0-1004-wave_band
                         <br />
                         <span style={{ color: "#33FF57" }}>Uptime:</span>{" "}
-                        21,373,712 mins
+                        {timeDifference}
                         <br />
                         <span style={{ color: "#33FF57" }}>
                           Resolution:

@@ -1,6 +1,6 @@
 # Waveband
 
-This is the repo for Waveband, a Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you!
+This is the repo for Waveband, a Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you! Waveband is running from May 23rd to June 20th, 2025.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ An RTL-SDR dongle is a small USB device that can receive radio waves anywhere fr
 
 ## How can I get started?
 
-Getting started with Waveband and RTL-SDR is easy! For the purpose of this YSWS, you won't need to install any drivers or additional software, as you can test your program using the Waveband API. Firstly, you need to come up with an idea. This can be anything that uses an RTL-SDR dongle, as long as you can spend at least 10hrs working on it. Next, you need to implement your idea! You might need to do a bit of research if you've chosen an ambitious idea or you're new to SDR. You can use any language and tools you want, as long as a large portion of code is written by you. Feel free to ask in #waveband in the [Hack Club Slack](https://hackclub.com/slack) for help if you need it. Finally, you can submit your project! You'll need to have created some sort of demo for this; if your project contains a web interface, then you should host it online. If it doesn't, a video and installation instructions should suffice.
+Getting started with Waveband and RTL-SDR is easy! For the purpose of this YSWS, you won't need to install any drivers, as you can test your program using the Waveband API. Firstly, you need to come up with an idea. This can be anything that uses an RTL-SDR dongle, as long as you can spend at least 10hrs working on it. Next, you need to implement your idea! You might need to do a bit of research if you've chosen an ambitious idea or you're new to SDR. You can use any language and tools you want, as long as most of the code is written by you. Feel free to ask in #waveband in the [Hack Club Slack](https://hackclub.com/slack) for help if you need it. Finally, you can submit your project! You'll need to have created some sort of demo for this; if your project contains a web interface, then you should host it online. If it doesn't, a video and installation instructions should suffice.
 
 ## What's the Waveband API?
 
