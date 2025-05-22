@@ -82,7 +82,7 @@ export default function Terminal() {
         </pre>
         <span>Welcome!</span>
         <br/>
-        <span>Waveband is a Hack Club YSWS running from May 23rd to June 20th. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
+        <span>Waveband is a Hack Club YSWS running from May 23rd to June 23rd. If you're a teen, you can get a free RTL-SDR dongle by making a program that uses one. Type 'instructions' for more.</span>
         <br />
         <span>
           <span style={{ color: "skyblue" }}>Available Commands:</span>

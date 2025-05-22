@@ -1,6 +1,6 @@
 # Waveband
 
-This is the repo for Waveband, a Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you! Waveband is running from May 23rd to June 20th, 2025.
+This is the repo for Waveband, a Hack Club YSWS where you ship a program that uses an RTL-SDR dongle, and we ship one out to you! Waveband is running from May 23rd to June 23rd, 2025.
 
 ## Table of Contents
 
