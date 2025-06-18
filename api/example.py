@@ -5,11 +5,8 @@ import numpy as np
 server_ip = "check canvas in #waveband for ip"
 server_port = "check canvas in #waveband for port"
 
-# Create device arguments
-args = dict(driver="rtltcp", rtltcp=f"{server_ip}:{server_port}")
-
 # Create the SDR device
-sdr = SoapySDR.Device(args)
+sdr = SoapySDR.Device(f"rtltcp={server_ip}:{server_port}")
 
 # Set sample rate of 2.1MHz
 sdr.setSampleRate(SOAPY_SDR_RX, 0, 2.1e6)
