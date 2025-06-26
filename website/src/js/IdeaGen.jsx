@@ -18,7 +18,7 @@ function generateIdea() {
   const r1 = Math.floor(Math.random() * (4 + 1));
   const r2 = Math.floor(Math.random() * (4 + 1));
 
-  return formats[r1] + functions[r2];
+  return formats[r1] + " " + functions[r2];
 }
 
 export default function IdeaGen() {
