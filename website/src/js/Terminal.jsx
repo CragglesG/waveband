@@ -120,7 +120,7 @@ export default function Terminal() {
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>General: </span> about, neofetch,
-          clear, instructions, idea
+          clear, instructions, gallery, idea
         </span>
         <span>
           <span style={{ color: "#c9c9c9" }}>Links:</span> github, source,
@@ -249,7 +249,7 @@ export default function Terminal() {
 |complements dump1090 by   |
 |providing a web interface |
 |and statistics tracking.  |
-|--------------------------|`}
+|--------------------------| `}
                       </li>
                       <li style={artStyle}>
                         {`
@@ -268,7 +268,7 @@ export default function Terminal() {
 |listening to FM and  |
 |AM radio and viewing |
 |nearby aircraft.     |
-|---------------------|`}
+|---------------------| `}
                       </li>
                       <li style={artStyle}>
                         {`
@@ -287,7 +287,7 @@ export default function Terminal() {
 |find current weather |
 |conditions using data|
 |from nearby aircraft.|
-|---------------------|`}
+|---------------------| `}
                       </li>
                     </ul>
                     <br></br>

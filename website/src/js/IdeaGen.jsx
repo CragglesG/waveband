@@ -13,11 +13,12 @@ const functions = [
   "for listening to local radio stations!",
   "for viewing images from the ISS! (hint: these are transmitted using SSTV)",
   "for receiving data from HAM radio stations! (hint: APRS might be helpful here)",
+  "for viewing changes in amplitude and frequency!",
 ];
 
 function generateIdea() {
-  const r1 = Math.floor(Math.random() * (4 + 1));
-  const r2 = Math.floor(Math.random() * (5 + 1));
+  const r1 = Math.floor(Math.random() * 5);
+  const r2 = Math.floor(Math.random() * 7);
 
   return formats[r1] + " " + functions[r2];
 }
