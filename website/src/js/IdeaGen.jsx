@@ -17,8 +17,8 @@ const functions = [
 ];
 
 function generateIdea() {
-  const r1 = Math.floor(Math.random() * 5);
-  const r2 = Math.floor(Math.random() * 7);
+  const r1 = Math.floor(Math.random() * formats.length);
+  const r2 = Math.floor(Math.random() * functions.length);
 
   return formats[r1] + " " + functions[r2];
 }
