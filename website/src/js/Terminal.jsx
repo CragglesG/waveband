@@ -302,23 +302,23 @@ export default function Terminal() {
                     <br></br>
                     <div style={{ display: "flex" }}>
                       <div style={artStyle}>{`
-        _,met$$$$$gg.
-      ,g$$$$$$$$$$$$$$$P.
-    ,g$$P""       """Y$$.".
-  ,$$P'              \`$$$.
-',$$P       ,ggs.     \`$$b:
-\`d$$'     ,$P"'   .    $$$
-  $$P      d$'     ,    $$P
-  $$:      $$.   -    ,d$$'
-  $$;      Y$b._   _,d$P'
-  Y$$.    \`.\`"Y$$$$P"'
-  \`$$b      "-.__
-  \`Y$$b
-    \`Y$$.
-      \`$$b.
-        \`Y$$b.
-          \`"Y$b._
-              \`""""
+        _,met$$$$$gg.  
+      ,g$$$$$$$$$$$$$$$P.  
+    ,g$$P""       """Y$$.".  
+  ,$$P'              \`$$$.  
+',$$P       ,ggs.     \`$$b:  
+\`d$$'     ,$P"'   .    $$$  
+  $$P      d$'     ,    $$P  
+  $$:      $$.   -    ,d$$'  
+  $$;      Y$b._   _,d$P'  
+  Y$$.    \`.\`"Y$$$$P"'  
+  \`$$b      "-.__  
+  \`Y$$b  
+    \`Y$$.  
+      \`$$b.  
+        \`Y$$b.  
+          \`"Y$b._  
+              \`""""  
              `}</div>
                       <div style={terminalStyle}>
                         <span style={{ color: "#33FF57" }}>
